@@ -13,9 +13,11 @@ import org.springframework.stereotype.Service;
 
 import com.nouhoun.springboot.jwt.integration.bean.RoleBean;
 import com.nouhoun.springboot.jwt.integration.bean.UserBean;
+import com.nouhoun.springboot.jwt.integration.domain.Order;
 import com.nouhoun.springboot.jwt.integration.domain.RandomCity;
 import com.nouhoun.springboot.jwt.integration.domain.User;
 import com.nouhoun.springboot.jwt.integration.domain.Work;
+import com.nouhoun.springboot.jwt.integration.repository.OrderRepository;
 import com.nouhoun.springboot.jwt.integration.repository.RandomCityRepository;
 import com.nouhoun.springboot.jwt.integration.repository.RoleRepository;
 import com.nouhoun.springboot.jwt.integration.repository.UserRepository;
@@ -40,6 +42,9 @@ public class GenericServiceImpl implements GenericService {
 
     @Autowired
     private RandomCityRepository randomCityRepository;
+    
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Override
     public User findByUsername(String username) {
@@ -146,6 +151,11 @@ public class GenericServiceImpl implements GenericService {
 	public List<Work> findAllWorks() {
 		// TODO Auto-generated method stub
 		return (List<Work>)workRepository.findAll();	
+	}
+
+	@Override
+	public Order saveOrder(Order order) {
+		 return (Order)orderRepository.save(order);
 	}
 
 }

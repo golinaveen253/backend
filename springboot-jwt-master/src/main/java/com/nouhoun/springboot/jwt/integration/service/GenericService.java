@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.nouhoun.springboot.jwt.integration.bean.RoleBean;
 import com.nouhoun.springboot.jwt.integration.bean.UserBean;
+import com.nouhoun.springboot.jwt.integration.domain.Order;
 import com.nouhoun.springboot.jwt.integration.domain.RandomCity;
 import com.nouhoun.springboot.jwt.integration.domain.User;
 import com.nouhoun.springboot.jwt.integration.domain.Work;
@@ -29,4 +30,6 @@ public interface GenericService {
 	List<RoleBean> getAllRoles();
 	
 	List<Work> findAllWorks();
+	
+	Order saveOrder(Order order);
 }
